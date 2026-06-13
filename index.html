@@ -9,8 +9,19 @@
             --primary-color: #4a90e2;
             --secondary-color: #f39c12;
             --bg-color: #f4f7f6;
+            --container-bg: #ffffff;
             --text-color: #333;
             --ball-size: 50px;
+            --header-color: #4a90e2;
+            --footer-color: #888;
+        }
+
+        [data-theme='dark'] {
+            --bg-color: #1a1a1a;
+            --container-bg: #2d2d2d;
+            --text-color: #f4f4f4;
+            --header-color: #69c8f2;
+            --footer-color: #aaa;
         }
 
         body {
@@ -22,21 +33,36 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .container {
-            background: white;
+            background: var(--container-bg);
             padding: 2rem;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             text-align: center;
             max-width: 500px;
             width: 90%;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            color: var(--text-color);
         }
 
         h1 {
             margin-bottom: 2rem;
-            color: var(--primary-color);
+            color: var(--header-color);
             font-weight: 700;
         }
 
@@ -61,6 +87,7 @@
             font-size: 1.2rem;
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             animation: popIn 0.5s ease forwards;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
         @keyframes popIn {
@@ -75,7 +102,7 @@
         .ball-range-4 { background-color: #aaa; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }    /* 31-40 */
         .ball-range-5 { background-color: #b0d840; text-shadow: 0 1px 2px rgba(0,0,0,0.2); } /* 41-45 */
 
-        button {
+        .draw-btn {
             background-color: var(--primary-color);
             color: white;
             border: none;
@@ -88,34 +115,54 @@
             outline: none;
         }
 
-        button:hover {
+        .draw-btn:hover {
             background-color: #357abd;
         }
 
-        button:active {
+        .draw-btn:active {
             transform: scale(0.95);
         }
 
         .footer {
             margin-top: 2rem;
             font-size: 0.85rem;
-            color: #888;
+            color: var(--footer-color);
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <button id="themeToggle" class="theme-toggle" title="테마 전환">🌓</button>
         <h1>로또 번호 추첨</h1>
         <div id="numbers" class="numbers-container">
             <!-- Numbers will appear here -->
         </div>
-        <button id="drawBtn">번호 추첨하기</button>
+        <button id="drawBtn" class="draw-btn">번호 추첨하기</button>
         <div class="footer">행운을 빕니다!</div>
     </div>
 
     <script>
         const numbersContainer = document.getElementById('numbers');
         const drawBtn = document.getElementById('drawBtn');
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Theme logic
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = body.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
 
         function getBallClass(num) {
             if (num <= 10) return 'ball-range-1';
@@ -126,9 +173,7 @@
         }
 
         function drawLottoNumbers() {
-            // Clear previous numbers
             numbersContainer.innerHTML = '';
-
             const lottoNumbers = [];
             while (lottoNumbers.length < 6) {
                 const num = Math.floor(Math.random() * 45) + 1;
@@ -136,11 +181,7 @@
                     lottoNumbers.push(num);
                 }
             }
-
-            // Sort numbers numerically
             lottoNumbers.sort((a, b) => a - b);
-
-            // Display numbers with animation delay
             lottoNumbers.forEach((num, index) => {
                 setTimeout(() => {
                     const ball = document.createElement('div');
@@ -152,9 +193,8 @@
         }
 
         drawBtn.addEventListener('click', drawLottoNumbers);
-
-        // Initial draw
         drawLottoNumbers();
     </script>
+
 </body>
 </html>
