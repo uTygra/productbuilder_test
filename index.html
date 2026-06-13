@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="간편하고 신뢰할 수 있는 로또 번호 생성기. 랜덤 번호 추천, 사용 방법, FAQ, 개인정보 처리방침을 제공하는 고품질 로또 도구 사이트입니다.">
     <meta name="google-adsense-account" content="ca-pub-1665350436717074">
     <title>로또 번호 추첨기</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1665350436717074"
@@ -131,32 +132,208 @@
             font-size: 0.85rem;
             color: var(--footer-color);
         }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .hero-content p {
+            margin: 0 auto 1rem;
+            max-width: 640px;
+            line-height: 1.7;
+            color: var(--text-color);
+        }
+
+        .link-btn {
+            display: inline-block;
+            margin: 0.25rem 0.25rem 0 0;
+            padding: 0.85rem 1.4rem;
+            border-radius: 999px;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .link-btn.secondary {
+            background-color: var(--secondary-color);
+        }
+
+        section {
+            text-align: left;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+
+        section h2 {
+            margin-bottom: 0.75rem;
+            color: var(--header-color);
+            font-size: 1.5rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .feature-card {
+            padding: 1.25rem;
+            background: rgba(74,144,226,0.08);
+            border-radius: 16px;
+            border: 1px solid rgba(74,144,226,0.12);
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .feature-card p {
+            margin: 0;
+            line-height: 1.65;
+            color: var(--text-color);
+        }
+
+        .generator {
+            background: rgba(74,144,226,0.05);
+            border-radius: 20px;
+            padding: 1.75rem;
+        }
+
+        .generator p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .ad-wrapper {
+            margin: 1.5rem 0;
+            padding: 1.25rem;
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.16);
+            border-radius: 18px;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--header-color);
+        }
+
+        .privacy-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 780px) {
+            body {
+                padding: 16px;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <button id="themeToggle" class="theme-toggle" title="테마 전환">🌓</button>
-        <h1>로또 번호 추첨</h1>
-        <div id="numbers" class="numbers-container">
-            <!-- Numbers will appear here -->
-        </div>
-        <button id="drawBtn" class="draw-btn">번호 추첨하기</button>
-        <!-- AdSense 광고 단위 -->
-        <div style="margin: 1.5rem 0; text-align: center;">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-1665350436717074"
-                 data-ad-slot="INSERT_AD_SLOT"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        <div class="footer">
-            행운을 빕니다! <br>
-            <a href="affiliate.html" style="color: var(--primary-color); text-decoration: none; margin-top: 10px; display: inline-block; font-weight: 600;">제휴 문의하기</a>
-        </div>
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>로또 번호 추첨기</h1>
+                    <p>신뢰할 수 있는 번호 추천과 명확한 이용 안내를 제공하는 고품질 로또 사이트입니다. 랜덤 생성, 통계 기반 제안, 사용법 설명을 통해 도우며, 개인정보 보호 정책을 명시합니다.</p>
+                    <a href="#generator" class="link-btn">번호 생성 시작</a>
+                    <a href="privacy.html" class="link-btn secondary">개인정보 처리방침</a>
+                </div>
+            </section>
+
+            <section class="intro">
+                <h2>사이트 소개</h2>
+                <p>이 사이트는 간단하면서도 깔끔한 로또 번호 생성기를 제공합니다. 사용자는 버튼 클릭 한 번으로 1부터 45 사이의 무작위 번호 6개를 생성할 수 있으며, 생성 결과는 보기 쉽게 정렬됩니다.</p>
+                <p>AdSense 광고는 페이지에 자연스럽게 배치되어 있으며, 사이트는 투명한 정책과 명확한 콘텐츠 중심 구조를 지향합니다.</p>
+            </section>
+
+            <section class="features">
+                <h2>주요 기능</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>간편한 생성</h3>
+                        <p>빠른 버튼 클릭으로 로또 번호를 즉시 생성합니다. 추가 입력 없이 누구나 쉽게 사용할 수 있습니다.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>명확한 안내</h3>
+                        <p>사이트는 투명한 정보 제공을 우선하며, 개인정보 처리방침과 광고 정책을 명시하여 신뢰도를 높입니다.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>모바일 친화적</h3>
+                        <p>모바일 화면에서도 편리하게 이용할 수 있는 반응형 디자인을 적용했습니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="generator" class="generator">
+                <h2>번호 생성기</h2>
+                <p>아래 버튼을 눌러 로또 번호를 생성하세요. 생성된 번호는 자동으로 정렬되어 가독성이 높습니다.</p>
+                <div id="numbers" class="numbers-container">
+                    <!-- Numbers will appear here -->
+                </div>
+                <button id="drawBtn" class="draw-btn">번호 추첨하기</button>
+
+                <div class="ad-wrapper">
+                    <p>광고는 페이지 운영을 위한 수익 목적으로 게재됩니다. 실제 광고 게재를 위해서는 아래 광고 단위 ID를 꼭 설정하세요.</p>
+                    <div style="margin-top: 1rem; text-align: center;">
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-1665350436717074"
+                             data-ad-slot="INSERT_AD_SLOT"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </section>
+
+            <section class="faq">
+                <h2>자주 묻는 질문</h2>
+                <div class="faq-item">
+                    <strong>Q: 이 번호는 당첨을 보장하나요?</strong>
+                    <p>A: 아니요. 본 사이트는 무작위 번호를 생성하는 도구입니다. 당첨 여부는 오롯이 확률과 운에 달려 있습니다.</p>
+                </div>
+                <div class="faq-item">
+                    <strong>Q: 개인정보는 안전한가요?</strong>
+                    <p>A: 본 사이트는 사용자 입력 개인정보를 수집하지 않으며, 광고 단위 정보는 페이지에만 포함됩니다. 자세한 내용은 <a href="privacy.html" class="privacy-link">개인정보 처리방침</a>을 확인하세요.</p>
+                </div>
+                <div class="faq-item">
+                    <strong>Q: 광고가 왜 표시되나요?</strong>
+                    <p>A: 광고는 사이트 운영 비용을 지원하기 위함이며, AdSense 정책을 준수하여 게재됩니다.</p>
+                </div>
+            </section>
+
+            <div class="footer">
+                행운을 빕니다! <br>
+                <a href="affiliate.html" class="privacy-link">제휴 문의하기</a> · <a href="privacy.html" class="privacy-link">개인정보 처리방침</a>
+            </div>
+        </main>
     </div>
 
     <!-- Disqus Comment Section -->
